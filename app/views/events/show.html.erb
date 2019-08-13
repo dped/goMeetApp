@@ -1,13 +1,13 @@
 <h1><%= @event.title %></h1>
 
-  <p><%=  event.start_time%></p>
-  <p><%=  event.end_time%></p>
-  <p> <%=  event.description%></p>
-  <p> <%=  event.price %></p>
+  <p><%=  @event.start_time%></p>
+  <p><%=  @event.end_time%></p>
+  <p> <%=  @event.description%></p>
+  <p> <%=  @event.price %></p>
 
-  <%= link_to "Edit this event", edit_event_path  %>
-  <%= link_to "Delete this event",  root_path,
+  <%= link_to "Edit this event", edit_event_path  %> <br>
+  <%= link_to "Delete this event", event_path(@event),
   method: :delete,
-  data: { confirm: "Are you sure?"} %>
+  data: { confirm: "Are you sure?"} %> <br>
 
- <%= link_to "Back to events",root_path  %>
+ <%= link_to "Back to events",root_path  %> <br>

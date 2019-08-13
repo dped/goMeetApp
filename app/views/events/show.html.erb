@@ -5,6 +5,11 @@
   <p> <%=  @event.description%></p>
   <p> <%=  @event.price %></p>
 
+  <% if Booking.exists?(user: current_user, event: @event) %>
+    <%= "You are attending"%>
+  <% else  %>
+    <%= link_to "Join this event", event_bookings_path(@event), method: :post %>
+  <% end  %> <br>
   <%= link_to "Edit this event", edit_event_path  %> <br>
   <%= link_to "Delete this event", event_path(@event),
   method: :delete,

@@ -1,0 +1,40 @@
+<img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+
+<!-- <%= @user.email %> -->
+<div span="text-danger">
+  <h1><%= @user.first_name %>
+    <%= @user.last_name %>
+  </h1>
+</div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6 text-center ">
+        <!-- <div class="profile-data"> -->
+        <div class="d-flex">
+          <div>
+            <p>Events attended</p><%= @user.attended_events.count %>
+          </div>
+          <div>
+            <h5>Interests</h5>
+            <% @user.interests.each do |interest| %>
+            <p><%= interest.name  %></p>
+            <% end %>
+          </div>
+          <%#= @user.ratings.count %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h5>About me</h5>
+        <p><%= @user.description  %></p>
+    </div>
+
+    <div class="row">
+      <h5>Location</h5>
+      <p><%= @user.location  %></p>
+    </div>
+  </div>
+
+

@@ -1,0 +1,8 @@
+<h1>My Bookings</h1>
+
+<% @bookings.each do |booking|%>
+  <%= link_to booking.event.title, event_path(booking.event)%>
+  <%= link_to "Delete this booking", booking_path(booking), method: :delete,
+    data: { confirm: "Are you sure?"} %>
+  <br>
+<% end  %>

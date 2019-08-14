@@ -1,9 +1,51 @@
-<h1><%= @event.title %></h1>
+<div class="container mt-3">
 
-  <p><%=  @event.start_time%></p>
-  <p><%=  @event.end_time%></p>
-  <p> <%=  @event.description%></p>
-  <p> <%=  @event.price %></p>
+<p>Wednesday, August 18, 2019</p>
+<h1><%= @event.title %></h1>
+<div class="time d-flex align-items-center mt-3">
+  <div class="d-flex">
+    <p class="mr-3">From: </p>
+    <p class="mr-3"><%=  @event.start_time%></p>
+    <p class="mr-3"> To: </p>
+    <p><%=  @event.end_time%></p>
+  </div>
+</div><!-- end time -->
+
+  <div class="avatar-header mt-3">
+    <div class="row">
+      <div class="col-8">
+        <div class="d-flex align-items-center">
+          <div class="avatar-large">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
+          </div>
+          <div class="ml-3 d-flex">
+            <p class="mr-2"><strong>Hosted by: </strong></p>
+            <p class="mr-2"><%= @event.user.first_name %></p>
+            <p><%= @event.user.last_name %></p>
+          </div>
+        </div>
+        <div class="event-img mt-5">
+          <%= image_tag "kastellet.jpg" %>
+        </div>
+          <div class="details mt-5">
+            <h4>Details</h4>
+            <p><%=  @event.description%></p>
+          </div>
+          <div class="row">
+            <div class="col-2">1</div>
+            <div class="col-2">2</div>
+            <div class="col-2">3</div>
+            <div class="col-2">4</div>
+          </div>
+        </div>
+      </div>
+    </div><!-- avatar-header end -->
+
+
+    <p> <%=  @event.price %></p>
+  </div>
+
+
 
   <% if Booking.exists?(user: current_user, event: @event) %>
     <%= "You are attending"%>

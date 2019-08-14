@@ -3,10 +3,8 @@
   width: 400px;
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin-bottom: 40px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
   margin-left: 50px;
-  margin-top: 20px;
 }
 
 .top-background {
@@ -14,6 +12,7 @@
   width: 100%;
   background-position: center;
   background-size: cover;
+  position: relative;
 }
 
 .card-trip h2 {
@@ -40,6 +39,15 @@
 .card-trip-infos .card-trip-user {
   position: absolute;
   right: 16px;
-  top: -20px;
-  width: 40px;
+  top: -42px;
+  width: 60px;
+}
+
+.card-image-title {
+  position: absolute;
+  top: 15px;
+  left: 25px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
 }

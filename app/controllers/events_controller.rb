@@ -3,6 +3,16 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+
+    events = Event.geocoded #returns flats with coordinates
+
+    @markers = events.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { event: event })
+      }
+    end
   end
 
   def show
@@ -45,7 +55,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:start_time, :end_time, :description, :price, :title)
+    params.require(:event).permit(:start_time, :end_time, :description, :price, :title, :address)
   end
 end
 

@@ -14,7 +14,23 @@
   background: rgba(0, 0, 0, 0.5);
   color: white;
 }
+
 .btn-action {
   height: 48px;
   width: 100%;
+}
+
+.btn-bookings {
+  font-size: 1.5rem;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 4px;
+  background: #6AC9C6;
+  transition: background 0.3s ease;
+  margin-bottom: 35px;
+    &:hover {
+    background: #54a09e;
+    color: white;
+    transition: 0.3s;
+  }
 }

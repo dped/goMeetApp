@@ -1,0 +1,111 @@
+// .profile-show-container {
+//   background-image: url("https://images.unsplash.com/photo-1551651767-d5ffbdd04b83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1003&q=80");
+//   background-position: center;
+//   background-size: cover;
+//   height: 100%;
+//   width: 100%;
+//   position: fixed;
+//   top: 0;
+// }
+
+.profile-show-background {
+  background-image: url("https://images.unsplash.com/photo-1551651767-d5ffbdd04b83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1003&q=80");
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: -100;
+}
+
+#profile-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50vw;
+  margin: 0 auto;
+  align-items: center;
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+
+  img {
+    position: absolute;
+    top: -130px;
+    border-radius: 50%;
+    align: center;
+  }
+}
+
+.info-elements {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-around;
+  width: 100%;
+  p {
+    width: 150px;
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+.lower-bottom-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  h3 {
+    font-weight: bold;
+    font-size: 25px;
+  }
+}
+
+.upper-profile-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 105px;
+  h2 {
+    font-size: 35px;
+    font-weight: bold;
+  }
+}
+
+.profile-name {
+  margin-top: 45px;
+  align-items: center;
+}
+
+.profile-color-background {
+  position: relative;
+  width: 50vw;
+}
+
+.profile-avatar-box {
+  display: flex;
+  justify-content: center;
+}
+
+.lower-user-profile {
+  width: 50%;
+}
+
+.buffer-box {
+  height: 250px;
+}
+
+.location-box{
+  margin-bottom: 30px;
+  h5 {
+    font-size: 25px;
+    font-weight: bold;
+  }
+}
+
+.lower-profile-buffer {
+  height: 100px;
+}

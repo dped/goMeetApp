@@ -1,40 +1,48 @@
-<img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
-
+<div class="profile-show-background"></div>
+<div class="profile-show-container">
+  <div class="buffer-box"></div>
+<div id="profile-container">
+  <div class="profile-color-background">
+    <div class="upper-profile-box">
+      <div class="profile-avatar-box">
+        <%=  cl_image_tag @user.photo, height: 240, width: 240, crop: :fill, gravity: :face %>
+      </div>
+      <div class="profile-name">
+          <h2><%= @user.first_name %>
+            <%= @user.last_name %>
+          </h2>
+      </div>
+    </div>
 <!-- <%= @user.email %> -->
-<div span="text-danger">
-  <h1><%= @user.first_name %>
-    <%= @user.last_name %>
-  </h1>
-</div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-6 text-center ">
+  </div>
+  <div class="lower-user-profile">
+  <div class="profile-info-container">
         <!-- <div class="profile-data"> -->
-        <div class="d-flex">
-          <div>
-            <p>Events attended</p><%= @user.attended_events.count %>
-          </div>
-          <div>
-            <h5>Interests</h5>
+        <div class="info-elements">
+            <p>Events attended <br> <%= @user.attended_events.count %></p>
+            <p>Interests</p>
             <% @user.interests.each do |interest| %>
             <p><%= interest.name  %></p>
             <% end %>
-          </div>
-          <%#= @user.ratings.count %>
+          <p> Ratings </p>
         </div>
       </div>
+    <div class="lower-bottom-profile">
+      <% if @user == current_user %>
+        <%= link_to "My events", event_bookings_path(current_user), class: "btn btn-bookings" %>
+      <% end %>
+      <div>
+        <h3>About me</h3>
+          <p><%= @user.description  %></p>
+      </div>
+      <div class="location-box">
+        <h5>Location</h5>
+        <p><%= @user.location  %></p>
+      </div>
     </div>
-
-    <div class="row">
-      <h5>About me</h5>
-        <p><%= @user.description  %></p>
     </div>
-
-    <div class="row">
-      <h5>Location</h5>
-      <p><%= @user.location  %></p>
-    </div>
-  </div>
-
+</div>
+<div class="lower-profile-buffer">
+</div>
+</div>
 

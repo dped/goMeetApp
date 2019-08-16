@@ -1,22 +1,19 @@
-<div class="container mt-3">
-
-<p>Wednesday, August 18, 2019</p>
-<h1><%= @event.title %></h1>
-<div class="time d-flex align-items-center mt-3">
-  <div class="d-flex">
-    <p class="mr-3">From: </p>
-    <p class="mr-3"><%=  @event.start_time%></p>
-    <p class="mr-3"> To: </p>
-    <p><%=  @event.end_time%></p>
-  </div>
-</div><!-- end time -->
-
-  <div class="avatar-header mt-3">
-    <div class="row">
-      <div class="col-8">
+<div class="container-padding header">
+  <div class="row bg-white">
+    <div class="col-8">
+      <p>Wednesday, August 18, 2019</p>
+      <h1><%= @event.title %></h1>
+        <div class="time d-flex align-items-center mt-3">
+          <div class="d-flex">
+            <p class="mr-3">From: </p>
+            <p class="mr-3"><%=  @event.start_time.strftime("%b %e, %l:%M %p") %></p>
+            <p class="mr-3"> To: </p>
+            <p><%=  @event.end_time.strftime("%b %e, %l:%M %p") %></p>
+          </div>
+        </div><!-- end time -->
         <div class="d-flex align-items-center">
           <div class="avatar-large">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
+            <%= cl_image_tag @event.user.photo, height: 120, width: 120, crop: :fill, gravity: :face %>
           </div>
           <div class="ml-3 d-flex">
             <p class="mr-2"><strong>Hosted by: </strong></p>
@@ -24,25 +21,83 @@
             <p><%= @event.user.last_name %></p>
           </div>
         </div>
-        <div class="event-img mt-5">
-          <%= image_tag "kastellet.jpg" %>
-        </div>
-          <div class="details mt-5">
-            <h4>Details</h4>
-            <p><%=  @event.description%></p>
-          </div>
-          <div class="row">
-            <div class="col-2">1</div>
-            <div class="col-2">2</div>
-            <div class="col-2">3</div>
-            <div class="col-2">4</div>
+      </div><!-- top left header end -->
+      <div class="col-4 event-status mt-5">
+        <p><strong>Are You going?</strong><span><p><%= @event.bookings.count %> people going</p></span></p>
+          <div class="flex-container d-flex justify-content-around">
+            <div class="flex-item d-flex flex-grow-1 mr-3">
+              <button type="button" class="btn btn-action btn-outline-primary"><i class="fas fa-check"></i></button>
+            </div>
+          <div class="flex-item d-flex flex-grow-1">
+            <button type="button" class="btn btn-action btn-outline-primary"><i class="fas fa-times"></i></button>
           </div>
         </div>
       </div>
-    </div><!-- avatar-header end -->
+  </div>
+</div><!-- end header -->
 
 
-    <p> <%=  @event.price %></p>
+<div class="event-show-container mt-3">
+  <div class="container-margin">
+    <div class="avatar-header mt-3">
+      <div class="row">
+        <div class="col-8">
+
+          <div class="event-img mt-5">
+            <%= cl_image_tag @event.photo %>
+          </div>
+            <div class="details mt-5">
+              <h4 class="mb-4">Details</h4>
+              <p><%=  @event.description%></p>
+            </div>
+            <section class="my-5">
+              <h4 class="mb-4">Attendees (<%= @event.bookings.count %>)</h4>
+              <div class="row">
+                <div class="col-3">
+
+                  <% @event.bookings.each do |booking| %>
+                  <!-- event.bookings.map(&:user) > guests -->
+
+                  <div class="card-members text-center">
+                    <%= cl_image_tag booking.user.photo, class: "avatar-card-members", alt: "avatar-large", height: 120, width: 120, crop: :fill, gravity: :face %>
+                    <p class="card-members-name"><strong>First-name Last-name</strong></p>
+                    <p class="card-members-member">Member</p>
+                    <p class="card-members-events">Attended 6 events</p>
+                  </div><!-- end card 1 -->
+                  <% end  %>
+
+                </div>
+
+            </section><!-- end section members -->
+          </div>
+          <div class="sidebar">
+            <section class="card mb-5 bg-primary text-light" id="drchase">
+              <div class="card-body">
+                <h2 class="card-title">Dr. Elizabeth Chase</h2>
+                <h5 class="card-subtitle">Dentistry</h5>
+                <p class="card-text">Dr. Chase spends much of her free time … </p>
+                <a class="card-link text-light" href="#">About Me</a>
+                <a class="card-link text-light" href="#">My Pets</a>
+                <a class="card-link text-light" href="#">Client Slideshow</a>
+              </div>
+              <img class="card-img-top img-fluid" src="images/doctor-chase.jpg"
+               alt="Doctor Chase Photo">
+            </section>
+              </div>
+          </div>
+        </div>
+      </div><!-- avatar-header end -->
+
+
+
+
+
+
+
+
+
+      <p> <%=  @event.price %></p>
+    </div>
   </div>
 
 

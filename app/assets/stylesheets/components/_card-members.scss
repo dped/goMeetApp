@@ -1,0 +1,33 @@
+.card-members {
+  background: white;
+  height: 220px;
+  min-width: 128px;
+  border-radius: 8px;
+  padding: 0 12px;
+
+  p {
+    margin: 0px;
+  }
+  .card-members-name {
+    font-size: 14px;
+  }
+  .card-members-member,
+  .card-members-events {
+    font-size: 12px;
+    margin-left: 10px;
+    line-height: 2 !important;
+  }
+}
+
+  .card-members:hover {
+    box-shadow: -1px 2px 10px 1px rgba(0, 0, 0, 0.1);
+  }
+
+
+/*
+  box-shdow
+  transform: eller translate:
+
+   box-shadow .25s cubic-bezier(.4,0,.2,1),transform .25s cubic-bezier(.4,0,.2,1);
+  transition: box-shadow .25s cubic-bezier(.4,0,.2,1),transform .25s cubic-bezier(.4,0,.2,1),-webkit-box-shadow .25s cubic-bezier(.4,0,.2,1),-webkit-transform .25s cubic-bezier(.4,0,.2,1);
+*/

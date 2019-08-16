@@ -53,3 +53,17 @@
   color: white;
   font-weight: bold;
 }
+
+.bookings_delete {
+  font-size: 35px;
+  position: relative;
+  top: 20px;
+  right: 18px;
+  color: black;
+  &:hover {
+    color: red;
+    font-size: 38px;
+    top: 18px;
+    right: 17px;
+  }
+}

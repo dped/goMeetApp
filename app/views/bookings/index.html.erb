@@ -1,8 +1,33 @@
-<h1>My Bookings</h1>
+<h1 class="bookings_title">My Bookings</h1>
 
-<% @bookings.each do |booking|%>
-  <%= link_to booking.event.title, event_path(booking.event)%>
-  <%= link_to "Delete this booking", booking_path(booking), method: :delete,
-    data: { confirm: "Are you sure?"} %>
-  <br>
-<% end  %>
+
+<div class="row">
+  <div class="col-8">
+    <div class="row pr-5">
+    <% @bookings.each do |booking|%>
+      <div class="col-6 offset-1">
+        <div class="card-trip mt-5">
+          <div class="top-background" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%=  cl_image_path booking.event.photo %>)">
+            <div class="card-image-title">
+              <%= link_to booking.event.title, event_path(booking.event)%>
+            </div>
+          </div>
+        <div class="card-trip-infos">
+          <div>
+            <%= booking.event.description[0..30]...%> <br>
+          </div>
+            <h2 class="card-trip-pricing">DKK <%= booking.event.price %></h2>
+            <%=  cl_image_tag booking.event.user.photo, class: "card-trip-user avatar-bordered", height: 120, width: 120, crop: :fill, gravity: :face  %>
+        </div>
+        </div>
+      </div>
+      <%= link_to booking_path(booking), class: "bookings_delete", method: :delete,
+        data: { confirm: "Are you sure?"} do %>
+        <i class="far fa-times-circle"></i>
+        <% end %>
+      <br>
+    <% end  %>
+    </div>
+  </div>
+</div>
+

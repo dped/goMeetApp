@@ -12,7 +12,12 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <% if (action_name == "index" && controller_name == "events") || (action_name == "profile" && controller_name == "profiles") %>
+      <%= yield %>
+    <% else %>
+      <div class="main-wrapper"></div>
+      <%= yield %>
+    <% end %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
 

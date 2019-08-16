@@ -19,12 +19,22 @@
   <div class="profile-info-container">
         <!-- <div class="profile-data"> -->
         <div class="info-elements">
-            <p>Events attended <br> <%= @user.attended_events.count %></p>
+          <div>
+            <i class="fas fa-running icon1"></i>
+            <p>Events attended <br> <%= @user.attended_events.count %>
+            </p>
+          </div>
+          <div>
+            <i class="fas fa-chess icon2"></i>
             <p>Interests</p>
             <% @user.interests.each do |interest| %>
-            <p><%= interest.name  %></p>
+              <p><%= interest.name  %></p>
             <% end %>
-          <p> Ratings </p>
+          </div>
+          <div>
+            <i class="fas fa-star icon3"></i>
+            <p> Ratings </p>
+          </div>
         </div>
       </div>
     <div class="lower-bottom-profile">

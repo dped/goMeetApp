@@ -6,16 +6,11 @@ class EventsController < ApplicationController
 
     events = Event.geocoded #returns flats with coordinates
 
-    @markers = events.map do |event|
-      {
-        lat: event.latitude,
-        lng: event.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { event: event })
-      }
-    end
+    @markers = markers(events)
   end
 
   def show
+    @markers = markers([@event])
   end
 
   def new
@@ -49,6 +44,16 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def markers(array)
+    array.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { event: event })
+      }
+    end
+  end
 
   def set_event
     @event = Event.find(params[:id])

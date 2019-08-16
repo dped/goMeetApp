@@ -8,3 +8,18 @@
 .container-padding {
   padding-left: 10%;
 }
+.card-info-whole {
+  height: 410px;
+  border-radius: 10px;
+}
+.card-info-top {
+  border-radius: 10px 10px 0 0;
+  height: 175px;
+}
+.card-map-bottom {
+  border-radius: 0 0 10px 10px;
+  height: 235px;
+}
+.card-icon-wrapper{
+  width:25px;
+}

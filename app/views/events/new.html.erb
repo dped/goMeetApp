@@ -1,8 +1,7 @@
-<div class="new_event_buffer_box"></div>
 <div class="new_event_background">
   <div class="create_event_form">
     <%= simple_form_for [@event] do |f| %>
-      <div class="form-inputs col-6 offset-2">
+      <div class="form-inputs">
         <%= f.input :title %>
         <%= f.input :price%>
         <%= f.input :start_time%>
@@ -11,9 +10,11 @@
         <%= f.input :address %>
       </div>
 
-      <div class="form-actions create_event_button offset-2">
-        <%= f.button :submit, "Create event" %>
+      <div class="form-actions">
+        <%= f.button :submit, "Create event", class: "create_event_button" %>
       </div>
     <% end %>
+    <div class="lower_new_event_buffer_box">
+    </div>
   </div>
 </div>

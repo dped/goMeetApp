@@ -1,14 +1,18 @@
 .new_event_background {
-  background-image: url(https://images.unsplash.com/photo-1551651767-620656e519f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80);
+  background-image: url(https://www.wakeupcopenhagen.dk/mere/oplev/koebenhavn/-/media/wakeup/koebenhavn/copenhagen-skyline.jpg?&cw=1600&ch=1080&cx=0.5&cy=0.5);
   background-position: center;
   background-size: cover;
   height: 100%;
   width: 100%;
-  position: fixed;
-  top: 0;
+  // position: fixed;
+  // top: 0;
   z-index: -100;
 }
 
-.new_event_buffer_box {
-  height: 150px;
+.lower_new_event_buffer_box {
+  height: 100px;
+}
+
+.form-inputs {
+  width: 95%
 }

@@ -36,17 +36,14 @@
 }
 
 .create_event_button {
-  position: relative;
-  bottom: 10px;
-  left: 10px;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   color: white;
   padding: 8px 14px;
   border-radius: 4px;
   background: #6AC9C6;
   transition: background 0.3s ease;
   margin-bottom: 35px;
-  width: 690px;
+  width: 300px;
     &:hover {
     background: #54a09e;
     color: white;

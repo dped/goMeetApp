@@ -1,18 +1,20 @@
-<h1>Edit @event.title</h1>
+<div class="new_event_background">
+  <div class="create_event_form">
+    <%= simple_form_for [@event] do |f| %>
+      <div class="form-inputs">
+        <%= f.input :title %>
+        <%= f.input :price%>
+        <%= f.input :start_time%>
+        <%= f.input :end_time%>
+        <%= f.input :description %>
+        <%= f.input :address %>
+      </div>
 
-<%= simple_form_for [@event] do |f| %>
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :price%>
-    <%= f.input :start_time%>
-    <%= f.input :end_time%>
-    <%= f.input :description %>
-    <%= f.input :address %>
+      <div class="form-actions">
+        <%= f.button :submit, "Edit event", class: "create_event_button" %>
+      </div>
+    <% end %>
+    <div class="lower_new_event_buffer_box">
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Edit event" %>
-  </div>
-<% end %>
-
-
+</div>

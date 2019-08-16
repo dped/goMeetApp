@@ -1,9 +1,13 @@
-a {
-  color: white;
+.card-image-title {
+  a { color: white;
   font-weight: bold;
   font-size: 25px;
   &:hover {
     text-decoration: none;
-    color: grey;
+    color: #6AC9C6;
+    font-size: 26px;
+    transition: 0.2s;
+    text-shadow: 1px 1px black;
+    }
   }
 }

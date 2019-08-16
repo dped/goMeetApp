@@ -1,0 +1,14 @@
+.new_event_background {
+  background-image: url(https://images.unsplash.com/photo-1551651767-620656e519f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80);
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: -100;
+}
+
+.new_event_buffer_box {
+  height: 150px;
+}

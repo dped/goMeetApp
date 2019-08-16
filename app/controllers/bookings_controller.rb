@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
       user: current_user
     )
     if @booking.save
-      redirect_to event_bookings_path(@event)
+      redirect_to event_path(@event)
     else
       render :new
     end

@@ -2,15 +2,7 @@
   <div class="row bg-white">
     <div class="col-8">
       <p>Wednesday, August 18, 2019</p>
-      <h1><%= @event.title %></h1>
-        <div class="time d-flex align-items-center mt-3">
-          <div class="d-flex">
-            <p class="mr-3">From: </p>
-            <p class="mr-3"><%=  @event.start_time.strftime("%b %e, %l:%M %p") %></p>
-            <p class="mr-3"> To: </p>
-            <p><%=  @event.end_time.strftime("%b %e, %l:%M %p") %></p>
-          </div>
-        </div><!-- end time -->
+      <h1 class="py-3"><%= @event.title %></h1>
         <div class="d-flex align-items-center">
           <div class="avatar-large">
             <%= cl_image_tag @event.user.photo, height: 120, width: 120, crop: :fill, gravity: :face %>
@@ -26,23 +18,22 @@
         <p><strong>Are You going?</strong><span><p><%= @event.bookings.count %> people going</p></span></p>
           <div class="flex-container d-flex justify-content-around">
             <div class="flex-item d-flex flex-grow-1 mr-3">
-              <button type="button" class="btn btn-action btn-outline-primary"><i class="fas fa-check"></i></button>
+              <button type="button" class="btn btn-action btn-outline-primary rounded"><i class="fas fa-check"></i></button>
             </div>
           <div class="flex-item d-flex flex-grow-1">
             <button type="button" class="btn btn-action btn-outline-primary"><i class="fas fa-times"></i></button>
           </div>
         </div>
       </div>
-  </div>
-</div><!-- end header -->
+  </div><!-- end header -->
+</div>
 
-
+<!-- main-content left column -->
 <div class="event-show-container mt-3">
   <div class="container-margin">
     <div class="avatar-header mt-3">
       <div class="row">
         <div class="col-8">
-
           <div class="event-img mt-5">
             <%= cl_image_tag @event.photo %>
           </div>
@@ -65,35 +56,65 @@
                     <p class="card-members-events">Attended 6 events</p>
                   </div><!-- end card 1 -->
                   <% end  %>
+                </div>
+            </section>
+          </div><!-- end section members -->
 
+          <!-- sidebar-right     Aug. 17. -->
+          <div class="card-info-whole sidebar col-4 mt-5 border-secondary p-0">
+            <div class="card-info-top border-primary bg-white">
+              <div class="time d-flex align-items-center event-sidebar-corners-top">
+                <div class="text-two lines ml-3 mt-3">
+                  <div class="d-flex justify-content-start ml-2">
+                    <div class="card-icon-wrapper">
+                      <i class="fas fa-clock text-primary"></i>
+                    </div>
+                    <div class="flex-item card-top-details mr-3"><%= @event.start_time.strftime("%A, %B %d, %Y") %></div>
+                  </div>
+                  <div class="d-flex justify-content-start ml-2">
+                    <div class="card-icon-wrapper"></div>
+                    <div class="card-top-details"> <%= "From: #{@event.start_time.strftime("%l:%M %p")} to #{@event.end_time.strftime("%l:%M %p")}" %></div>
+                  </div>
+                </div>
+              </div>
+
+
+                <div class="text-two lines ml-3 mt-3">
+                  <div class="d-flex justify-content-start ml-2">
+                    <div class="card-icon-wrapper">
+                      <i class="fas fa-map-marker-alt text-primary"></i>
+                    </div>
+                    <div class="card-top-details"><strong><%= "#{@event.title}" %></strong></div>
+                  </div>
+                  <div class="d-flex justify-content-start ml-2">
+                    <div class="card-icon-wrapper"></div>
+                    <div class="flex-item card-top-details mr-3"><%= @event.address %></div>
+                  </div>
                 </div>
 
-            </section><!-- end section members -->
-          </div>
-          <div class="sidebar">
-            <section class="card mb-5 bg-primary text-light" id="drchase">
-              <div class="card-body">
-                <h2 class="card-title">Dr. Elizabeth Chase</h2>
-                <h5 class="card-subtitle">Dentistry</h5>
-                <p class="card-text">Dr. Chase spends much of her free time … </p>
-                <a class="card-link text-light" href="#">About Me</a>
-                <a class="card-link text-light" href="#">My Pets</a>
-                <a class="card-link text-light" href="#">Client Slideshow</a>
+
+              </div><!-- end time -->
+
+              <div class="card-map-bottom text-white">
+                <div id="map"
+                  style="width: 100%; height: 235px; border-radius: 0 0 10px 10px;"
+                  data-markers="<%= @markers.to_json %>"
+                  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+                </div>
               </div>
-              <img class="card-img-top img-fluid" src="images/doctor-chase.jpg"
-               alt="Doctor Chase Photo">
-            </section>
-              </div>
+
+
+
+
+
+
+              <div class="time d-flex align-items-center event-sidebar-corners-top">
+
+              </div><!-- end time -->
+
           </div>
         </div>
       </div><!-- avatar-header end -->
-
-
-
-
-
-
-
 
 
       <p> <%=  @event.price %></p>

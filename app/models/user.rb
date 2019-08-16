@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-   mount_uploader :photo, PhotoUploader
+  mount_uploader :photo, PhotoUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :user_interests
@@ -18,6 +18,4 @@ class User < ApplicationRecord
     Event.joins(:bookings)
          .where(bookings: { user: User.last })
   end
-
-
 end

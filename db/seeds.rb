@@ -4,6 +4,7 @@
 # Examples:
 #
 #  movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+UserInterest.destroy_all
 Event.destroy_all
 User.destroy_all
 # FIRST BLOCK

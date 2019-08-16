@@ -6,14 +6,14 @@
         <div class="time d-flex align-items-center mt-3">
           <div class="d-flex">
             <p class="mr-3">From: </p>
-            <p class="mr-3"><%=  @event.start_time%></p>
+            <p class="mr-3"><%=  @event.start_time.strftime("%b %e, %l:%M %p") %></p>
             <p class="mr-3"> To: </p>
-            <p><%=  @event.end_time%></p>
+            <p><%=  @event.end_time.strftime("%b %e, %l:%M %p") %></p>
           </div>
         </div><!-- end time -->
         <div class="d-flex align-items-center">
           <div class="avatar-large">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
+            <%= cl_image_tag @event.user.photo, height: 120, width: 120, crop: :fill, gravity: :face %>
           </div>
           <div class="ml-3 d-flex">
             <p class="mr-2"><strong>Hosted by: </strong></p>
@@ -23,7 +23,7 @@
         </div>
       </div><!-- top left header end -->
       <div class="col-4 event-status mt-5">
-        <p><strong>Are You going?</strong><span><p>4 people going</p></span></p>
+        <p><strong>Are You going?</strong><span><p><%= @event.bookings.count %> people going</p></span></p>
           <div class="flex-container d-flex justify-content-around">
             <div class="flex-item d-flex flex-grow-1 mr-3">
               <button type="button" class="btn btn-action btn-outline-primary"><i class="fas fa-check"></i></button>
@@ -44,49 +44,30 @@
         <div class="col-8">
 
           <div class="event-img mt-5">
-            <%= image_tag "kastellet.jpg" %>
+            <%= cl_image_tag @event.photo %>
           </div>
             <div class="details mt-5">
               <h4 class="mb-4">Details</h4>
               <p><%=  @event.description%></p>
             </div>
             <section class="my-5">
-              <h4 class="mb-4">Attendees (4)</h4>
+              <h4 class="mb-4">Attendees (<%= @event.bookings.count %>)</h4>
               <div class="row">
                 <div class="col-3">
 
+                  <% @event.bookings.each do |booking| %>
+                  <!-- event.bookings.map(&:user) > guests -->
+
                   <div class="card-members text-center">
-                    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-card-members", alt: "avatar-large" %>
+                    <%= cl_image_tag booking.user.photo, class: "avatar-card-members", alt: "avatar-large", height: 120, width: 120, crop: :fill, gravity: :face %>
                     <p class="card-members-name"><strong>First-name Last-name</strong></p>
                     <p class="card-members-member">Member</p>
                     <p class="card-members-events">Attended 6 events</p>
                   </div><!-- end card 1 -->
+                  <% end  %>
 
                 </div>
-                <div class="col-3">
-                  <div class="card-members text-center">
-                    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-card-members", alt: "avatar-large" %>
-                    <p class="card-members-name"><strong>First-name Last-name</strong></p>
-                    <p class="card-members-member">Member</p>
-                    <p class="card-members-events">Attended 6 events</p>
-                  </div><!-- end card 2 -->
-                </div>
-                <div class="col-3">
-                  <div class="card-members text-center">
-                    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-card-members", alt: "avatar-large" %>
-                    <p class="card-members-name"><strong>First-name Last-name</strong></p>
-                    <p class="card-members-member">Member</p>
-                    <p class="card-members-events">Attended 6 events</p>
-                  </div><!-- end card 2 -->
-                </div>
-                <div class="col-3">
-                  <div class="card-members text-center">
-                    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-card-members", alt: "avatar-large" %>
-                    <p class="card-members-name"><strong>First-name Last-name</strong></p>
-                    <p class="card-members-member">Member</p>
-                    <p class="card-members-events">Attended 6 events</p>
-                  </div><!-- end card 2 -->
-                </div>
+
             </section><!-- end section members -->
           </div>
           <div class="sidebar">
